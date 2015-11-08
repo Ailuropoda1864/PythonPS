@@ -103,10 +103,8 @@ class RectangularRoom(object):
         n: an integer
         returns: True if (m, n) is cleaned, False otherwise
         """
-        if (m, n) in self.cleanTile:
-            return True
-        else:
-            return False
+        return (m, n) in self.cleanTile
+
     
     def getNumTiles(self):
         """
@@ -141,10 +139,8 @@ class RectangularRoom(object):
         pos: a Position object.
         returns: True if pos is in the room, False otherwise.
         """
-        if ( pos.getX() >= 0 and pos.getX() < self.width) and ( pos.getY() >= 0 and pos.getY() < self.height):
-            return True
-        else:
-            return False
+        return ( ( pos.getX() >= 0 and pos.getX() < self.width) and ( pos.getY() >= 0 and pos.getY() < self.height) )
+
 
 
 class Robot(object):
