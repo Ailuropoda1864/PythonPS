@@ -69,7 +69,7 @@ class RobotVisualization:
 
     def _draw_robot(self, position, direction):
         "Returns a polygon representing a robot with the specified parameters."
-        x, y = position.getX(), position.getY()
+        x, y = position.x, position.y
         d1 = direction + 165
         d2 = direction - 165
         x1, y1 = self._map_coords(x, y)
@@ -94,14 +94,14 @@ class RobotVisualization:
         # Draw new robots
         self.robots = []
         for robot in robots:
-            pos = robot.getRobotPosition()
-            x, y = pos.getX(), pos.getY()
+            pos = robot.position
+            x, y = pos.x, pos.y
             x1, y1 = self._map_coords(x - 0.08, y - 0.08)
             x2, y2 = self._map_coords(x + 0.08, y + 0.08)
             self.robots.append(self.w.create_oval(x1, y1, x2, y2,
                                                   fill = "black"))
             self.robots.append(
-                self._draw_robot(robot.getRobotPosition(), robot.getRobotDirection()))
+                self._draw_robot(robot.position, robot.direction))
         # Update text
         self.w.delete(self.text)
         self.time += 1
